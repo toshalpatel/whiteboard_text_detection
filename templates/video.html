@@ -1,0 +1,28 @@
+<!doctype html>
+<title>White Board detection</title>
+<h1>Whiteboard Text Detection</h1>
+<form action="/" enctype="multipart/form-data">
+    <p>
+        <input type="submit" value="Home">
+    </p>
+</form>
+<br>
+<p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+</p>
+{% if filename %}
+<div>
+    <video width="640", height="420" controls>
+        <source src="{{ url_for('display_input', filename=filename) }}">
+        Your browser does not support the video tag.
+    </video>
+</div>
+{% endif %}

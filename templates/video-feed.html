@@ -1,0 +1,19 @@
+<!doctype html>
+<title>White Board detection</title>
+<h1>Whiteboard Text Detection</h1>
+<form action="/" enctype="multipart/form-data">
+    <p>
+        <input type="submit" value="Home">
+    </p>
+</form>
+<br>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+                <h3 class="mt-5">Live Streaming</h3>
+                <img src="{{ url_for('gen_frames') }}">
+            </div>
+        </div>
+    </div>
+</body>

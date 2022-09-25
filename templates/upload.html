@@ -1,0 +1,33 @@
+<!doctype html>
+<title>White Board detection</title>
+<h1>Whiteboard Text Detection</h1>
+<h3>Select a image to upload</h3>
+<form method="post" action="/image" enctype="multipart/form-data">
+    <dl>
+        <p>
+            <input type="file" name="file" autocomplete="off" required>
+        </p>
+    </dl>
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>
+<br>
+<h3>Select a video to upload</h3>
+<form method="post" action="/video" enctype="multipart/form-data">
+    <dl>
+        <p>
+            <input type="file" name="file" autocomplete="off">
+        </p>
+    </dl>
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>
+<br>
+<h3>Start Webcam</h3>
+<form action="/video-feed" enctype="multipart/form-data">
+    <p>
+        <input type="submit" value="Start Webcam">
+    </p>
+</form>
