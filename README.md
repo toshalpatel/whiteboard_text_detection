@@ -2,18 +2,23 @@
 
 This repository runs a python app to detect text from the uploaded images. The future updates will include reading text from videos or webcam. 
 
-()[screenshots/home.png]
+[](screenshots/home.png)
 
 
 Result of the uploaded image will have the detected whiteboard and text as shown below.
 
-()[screenshots/result.png]
+[](screenshots/result.png)
 
-## Setup
+## Technical breakdown
 
-Run
-'''bash
+This is a flask app that uses OpenCV shape detector to find out whiteboards and for each whiteboard (or rectangle) found it detects the text using the [EasyOCR](https://github.com/JaidedAI/EasyOCR) library.
+
+### Setup
+
+To install the dependencies for the app, 
+
+```bash
 sh setup.sh
-'''
+```
 
-EasyOCR requires pytorch implementation, hence, you can install the gpu version, otherwise by default the setup script will install the cpu version and run the inference.
+Note: For EasyOCR, please install torch and torchvision first by following the official instructions [here](https://pytorch.org). On the pytorch website, be sure to select the right CUDA version you have. If you intend to run on CPU mode only, select CUDA = None.
