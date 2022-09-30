@@ -21,7 +21,10 @@ def process_input(filename):
 	boards, wb_img = detect_whiteboard(img)
 	cv2.imwrite(os.path.join(app.config['RESULT_FOLDER'],filename),wb_img)
 	results = detect_text(boards, reader)
-	return results
+	final_res_string = ''
+	for i, res in enumerate(results):
+		final_res_string += f' Whiteboard {(i+1)}: '.join(res)
+	return final_res_string
 
 @app.route('/')
 def upload_form():

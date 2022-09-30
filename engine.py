@@ -137,18 +137,28 @@ def detect_whiteboard(img, debug=False):
     #     board_crops = board_crops[0]
     return board_crops, orig_img
 
-def init_text_detector():
+def init_text_detector(lang=['en']):
+    '''
+    lang: language of detection for the model
+    returns: initializes the easy ocr model with the language
+    '''
     import easyocr
-    reader = easyocr.Reader(['en'])
+    if not isinstance(lang, list):
+        lang = [lang]
+    reader = easyocr.Reader(lang)
     return reader
 
 def detect_text(images, reader):
+    '''
+    images: list of the images (various whiteboards detected) for ocr
+    reader: EasyOCR reader object
+    returns: list of results from all whiteboards
+    '''
     results = []
     for img in images:
         res = reader.readtext(img, paragraph=True)
         results.append(res[0][-1])
     results = list(set(results))
-    results = ' '.join(results)
     return results
 
 
